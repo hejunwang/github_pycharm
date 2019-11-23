@@ -12,7 +12,15 @@
 
 '''
 在GitHub上创建仓库   
-vcs -->import into version --> share project on github 
+1 . vcs -->import into version --> share project on github  可以在GitHub上可以看到已经上传的代码 
+2 .创建分支 
+在底部的git:master  从origin master checkout一个分支到本地命名为dev   新建分支后可以看到current分支变为dev
+可以看到在local branches 下看到dev 
+注意，这个dev实际是本地的，origin并没有dev分支，不信到gitlab上看 
+通过右下角的checkout可以自如的在dev和master分支上切换
+
+一般情况下就在本地的dev上开发即可，开发完就可以删掉这个本地dev分支了，
+如果想在origin上也创建一个dev分支，需要commit一下
 
 
 '''
