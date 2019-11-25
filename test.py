@@ -20,7 +20,13 @@
 通过右下角的checkout可以自如的在dev和master分支上切换
 
 一般情况下就在本地的dev上开发即可，开发完就可以删掉这个本地dev分支了，
-如果想在origin上也创建一个dev分支，需要commit一下
+如果想在origin上也创建一个dev分支，需要commit一下  
 
+分支的代码编写完成之后 ,切换到master上, 就可以merge 到github 上了 
+右键 git , respository -->push 
+
+
+
+这个是test 更新文档,这是dev分支 branch 
 
 '''
