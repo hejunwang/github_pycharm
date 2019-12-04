@@ -31,12 +31,43 @@ print(a2)
   [3 4 5]
   [6 7 8]]]
 '''
+
+#numpy 中的转置,转置是一种变换,对于numpy中的数组来说 ,就是对角线方向交换数据 ,目的是为了更方便的处理数据
+
+a3 =np.arange(12).reshape(3,4)
+print(a3)
+'''
+[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]]
+'''
+# 二维数组的转换方式一
+print(a3.transpose())       #行的数据 转换成列的数据
+'''
+[[ 0  4  8]
+ [ 1  5  9]
+ [ 2  6 10]
+ [ 3  7 11]]
+'''
+#二维数组的转换方式二
+print(a3.T)
+print('------------')
+print(a3.swapaxes(1,0))   #这里的1 和0 代表的是  1轴和0轴的转换 ,可以看出 转置和交换轴是一个效果
+
+
+
+
 print('----------numpy读取数据,但是没有pandas强大,了解下---------------')
 # np.loadtxt("filename",dtype=np.float,delimiter=None,skiprows=0,usecols=None,unpack=False)
        # 常用  文件路径                                                            unpack把行变成列
-import os
-print(os.getcwd())
-n1 = np.loadtxt('n2.csv',delimiter=',',dtype=int)
-print(n1)
 
-' P16的位置 观看到'
+n1 = np.loadtxt('n2.csv',delimiter=',',dtype=int)
+print(n1.shape)
+#取行的数据
+print(n1[2])
+#取多行数据
+print(n1[2:])
+#取不连续的多行数据
+print()
+
+' P17的位置 观看到,重新开始看'
