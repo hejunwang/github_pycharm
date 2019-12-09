@@ -30,3 +30,6 @@ print(n1<10)
 '''
 n1[n1<15]=3
 print(n1)
+
+t1 = np.random.randint(10,20,(4,5))
+print(t1)
