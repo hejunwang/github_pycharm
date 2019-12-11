@@ -11,7 +11,13 @@
 '''
 
 '''
-pandas 处理numpy 之外的 工具
+pandas 处理numpy 之外的 工具,处理原始的数据  比较复杂的 不只是数组类型的 数据  
+
+pandas  的常用数据类型  
+
+Series  一维,带标签的数组  
+DataFrame 二维 ,Series容器  
+
 '''
 import numpy as np
 import pandas as pd
