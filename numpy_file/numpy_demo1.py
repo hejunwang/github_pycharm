@@ -48,10 +48,6 @@ print(t6.dtype)
 t7 =numpy.round(t6,2)
 print(t7)
 
-
-
-
-
 #切片
 vect = numpy.array([5,3,90,12,23])
 print(vect[:3])                 #左闭右开
