@@ -22,5 +22,62 @@ DataFrame 二维 ,Series容器
 import numpy as np
 import pandas as pd
 
-t =pd.Series(np.arange(10))
+t =pd.Series(np.arange(5))   #带标签的数组
 print(t)
+print(type(t))
+'''
+0    0
+1    1
+2    2
+3    3
+4    4
+dtype: int32
+<class 'pandas.core.series.Series'>
+'''
+t1 = pd.Series([1,2,3,4,5],index=list('abcde'))   #指定数组的index
+print(t1)
+
+temp_dict={"name":"abc","age":30,"add":"xsdfsdfsdf"}
+t2 = pd.Series(temp_dict)                      #通过字典的方式 创建
+print(t2)
+'''
+name           abc
+age             30
+add     xsdfsdfsdf
+dtype: object
+'''
+print('#索引 --- 一个的时间直接传入序号这是index ,多个的时间传入序号或者是index列表'
+      ' 和切片---直接传入start  end  step即可    ')
+name = t2['name']     #通过关键字
+print(name)
+
+add = t2[2]          #通过位置 索引
+print(add)
+
+x1 = t2[:2]     # 取前两行
+print(x1)
+
+x1 = t2[[0,2]]     # 取不连续的行   t2[['name','add']]  这样也是可以的
+print(x1)
+
+# x1 = t2['tel']     #如果数组中没有对应的关键字,取数据的时间,可能得到nan 或者是报错
+# print(x1)
+
+#bool 索引
+x1 = t1[t1>2]
+print(x1)
+
+print(t2.index)       #属性值
+print(t2.values)
+print(type(t2.values))    #<class 'numpy.ndarray'>
+
+
+'''
+读取外部文件   
+'''
+df = pd.read_csv('pand.csv')
+print(df)
+
+
+#读取数据库的内容 mysql   ,mongodb
+from pymongo import MongoClient
