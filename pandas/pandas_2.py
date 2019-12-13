@@ -35,6 +35,30 @@ print(df)
 0  xiaohong  12.0  10089   NaN  NaN
 1  xiaogang   NaN    NaN  male   GD
 '''
+print(df.index)
+print(df.columns)
+'''
+RangeIndex(start=0, stop=2, step=1)
+Index(['name', 'age', 'tel', 'sex', 'add'], dtype='object')
+'''
 
+print('*'*100)
+'''
+DataFrame的基础属性 
+'''
+print(df.shape)     #行 列 数
+print(df.dtypes)     #列数据的类型
+print(df.ndim)     #数据纬度
+print(df.index)     # 行 索引
+print(df.columns)     # 列索引
+print(df.values)     # 二维的  ndarray
+
+print(df.head(2))     # 显示头部几行 ,默认是5
+print(df.tail(1))     # 显示末尾几行,默认是5
+
+print(df.info())     # 相关信息的概要
+print(df.describe())     # 快速综合的统计信息  统计数字列
+
+print(df.sort_values(by="列的名称"))    # 这个排序后面用的较多
 
 #p26
