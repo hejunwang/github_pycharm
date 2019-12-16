@@ -80,7 +80,7 @@ df.iloc[]  通过位置获取行数据
 
 '''
 
-t3 = pd.DataFrame(np.arange(12).reshape(3,4),index=list('abc'),columns=list('wxyz'))
+t3 = pd.DataFrame(np.arange(12).reshape(3,4),index=list('abc'),columns=list('wxyz')).astype(float)
 print(t3)
 '''
    w  x   y   z
@@ -110,6 +110,49 @@ print(t3.iloc[:,[1,3]])  #代表1列 和第3列数据
 #也是可以赋值的
 t3.iloc[[0,2],[1,3]] = 10
 print(t3.iloc[[0,2],[1,3]])  #代表1列 和第3列数据 ,第0行和第2行 之间的交叉区域数据
+# t3.iloc[[0,2],[1,3]] = np.nan
+
+print(t3)
+#bool 索引
+print(t3[t3['x']>3])    #一个条件判断的情况
+
+#如果有多个条件 ,需要使用() 中间使用&符号
+print(t3[ (t3['x']>3) &(t3['x']<10)])
+
+'''
+关于缺失数据的处理 :一般分两种情况  
+1.一种是 空,NONE等 在pandas中是NAN 
+2. 另外一种是 0 
+'''
+#判断pandas 中是否有nan
+print(pd.isnull(t3))
+print(pd.notnull(t3))
 
 
-'p28:00'
+#缺失数据的处理
+#填充数据
+print(t3.mean())
+'''
+w    4.000000
+x    8.333333
+y    6.000000
+z    9.000000
+dtype: float64
+'''
+t3['w'][0] =np.nan
+
+print(t3['w'].mean())    #并不会把nan计算进去
+
+
+#填充某一列
+print(t3.fillna(t3.mean()))
+
+
+'''
+处理为0 的处理  t[t==0] = np.nan
+当然并不是每次为0 的数据要处理  
+计算平均值的时间 ,nan是不参与计算的, 但是0会 
+'''
+
+
+'p29:00'
