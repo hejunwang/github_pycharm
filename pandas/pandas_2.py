@@ -27,7 +27,10 @@ print(df)
 '''
 
 #series 可是使用dict创建 , DataFrame 也是可以传入dict的 ,其中没有的信息,使用的nan来进行填充
-d1 = [{'name':"xiaohong","age":12,"tel":'10089'},{'name':"xiaogang","sex":"male","add":"GD"}]
+d1 = [{'name':"xiaohong","age":12,"tel":'10089'},
+      {'name':"xiaogang","sex":"male","add":"GD","age":15},
+      {'name':"xiaoming","sex":"male","add":"GD","age":13}
+      ]
 df = pd.DataFrame(d1)
 print(df)
 '''
@@ -59,6 +62,12 @@ print(df.tail(1))     # 显示末尾几行,默认是5
 print(df.info())     # 相关信息的概要
 print(df.describe())     # 快速综合的统计信息  统计数字列
 
-print(df.sort_values(by="列的名称"))    # 这个排序后面用的较多
+print('*'*50+"重要"+"*"*50)
+print(df.sort_values(by="age",ascending=False))    # 这个排序后面用的较多        降序排列
 
-#p26
+print(df[:2]['age'])   #取得2行之前的数据 ,其中列中选择age列 作为输出
+
+
+
+
+'p27'
