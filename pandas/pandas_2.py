@@ -64,10 +64,52 @@ print(df.describe())     # 快速综合的统计信息  统计数字列
 
 print('*'*50+"重要"+"*"*50)
 print(df.sort_values(by="age",ascending=False))    # 这个排序后面用的较多        降序排列
-
+'''
+pandas 中取行或者列的注意点 :
+---方括号 写数组 表示对行 操作 
+---方括号写字符串,表示的取列索引,对列进行操作  
+'''
+print(df[:1])
+print(df['sex'])
 print(df[:2]['age'])   #取得2行之前的数据 ,其中列中选择age列 作为输出
 
+'''
+pandas 优化过的选择方式  
+df.loc[]  通过标签索引行数据  
+df.iloc[]  通过位置获取行数据  
+
+'''
+
+t3 = pd.DataFrame(np.arange(12).reshape(3,4),index=list('abc'),columns=list('wxyz'))
+print(t3)
+'''
+   w  x   y   z
+a  0  1   2   3
+b  4  5   6   7
+c  8  9  10  11
+'''
+#
+print(t3.loc['a','z'])    #  3
+print(t3.loc['a'])    #  a 行
+print(t3.loc['a',:])    #  a 行
+print(t3.loc[:,'w'])    #  w 列
+print(t3.loc[['a','c'],:])    #a 行 和c行
+
+print(t3.loc['a':'c',['z','y']])  #连续的a行到c行,y列和z列 ,这里要注意的是 包含了c行
 
 
+print('iloc是通过位置来选择的')
+print(t3.iloc[0])  #代表0行
+print(t3.iloc[0:2,])  #代表连续多行
+print(t3.iloc[[0,2]])  #代表不连续多行
+print(t3.iloc[:,1])  #代表第1列
+print(t3.iloc[:,1:])  #代表1列以后的连续的列
+print(t3.iloc[:,1:3])  #代表1列到3列
+print(t3.iloc[:,[1,3]])  #代表1列 和第3列数据
 
-'p27'
+#也是可以赋值的
+t3.iloc[[0,2],[1,3]] = 10
+print(t3.iloc[[0,2],[1,3]])  #代表1列 和第3列数据 ,第0行和第2行 之间的交叉区域数据
+
+
+'p28:00'
