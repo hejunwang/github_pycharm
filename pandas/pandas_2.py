@@ -147,7 +147,8 @@ print(t3['w'].mean())    #并不会把nan计算进去
 #填充某一列
 print(t3.fillna(t3.mean()))
 
-
+t3 = t3.fillna(t3.mean())
+print(t3)
 '''
 处理为0 的处理  t[t==0] = np.nan
 当然并不是每次为0 的数据要处理  
