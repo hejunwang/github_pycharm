@@ -79,5 +79,3 @@ df = pd.read_csv('pand.csv')
 print(df)
 
 
-#读取数据库的内容 mysql   ,mongodb
-from pymongo import MongoClient
